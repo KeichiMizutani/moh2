@@ -286,7 +286,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.25
+      scalar: 0.5
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -4876,7 +4876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8db485fe5c1954a8d266bb8c91899c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  edgeColor: {r: 0.73323035, g: 15.560786, b: 11.464199, a: 0}
+  edgeColor: {r: 0.39930713, g: 8.47419, b: 4.0220556, a: 0}
   waitDissolveTime: 0
 --- !u!114 &537696973917650624
 MonoBehaviour:
