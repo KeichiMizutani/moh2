@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHP : MonoBehaviour
 {
     public float HP = 100f;
-    float maxHP = 100f;
+    public float maxHP = 100f;
     public GameObject HPText;
 
     // Start is called before the first frame update
