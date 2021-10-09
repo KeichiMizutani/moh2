@@ -19,6 +19,10 @@ public class Goal : MonoBehaviour
 
 	void OnCollisionEnter(Collision col)
 	{
+        Debug.Log(col);
+        
+        GameObject.FindObjectOfType<GameManager>().SetScore();
+        Debug.Log(GameObject.FindObjectOfType<GameManager>());
 		if(col.gameObject.tag == "Player"){
 			SceneManager.LoadScene("Result");
 		}		

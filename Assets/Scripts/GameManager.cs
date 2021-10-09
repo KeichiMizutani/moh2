@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     //プレイヤーのHPをスコアに変換
     public void SetScore()
     {
-        // score = GameObject.FindObjectOfType<PlayerHP>().HP;
+        score = GameObject.FindObjectOfType<PlayerHP>().HP;
+        Debug.Log(score);
     }
 
     //スコアを取得
     public float GetScore()
     {
+        Debug.Log(score);
         return score;
     }
 }
