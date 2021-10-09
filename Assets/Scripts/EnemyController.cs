@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int hp;
     void Update()
     {
-        transform.position+=new Vector3(direction.x*speed, direction.y*speed, direction.z*speed);
+        transform.position+=new Vector3(direction.x*speed, direction.y*speed, direction.z*speed) * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision other) {
