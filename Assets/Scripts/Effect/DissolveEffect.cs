@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Effect
@@ -29,6 +30,11 @@ namespace Effect
         {
             _timer += Time.deltaTime;
             _renderer.material.SetFloat(DissolveProportion, ToDissolveProportion(_timer));
+        }
+
+        private void OnDisable()
+        {
+            _timer = 0.0f;
         }
 
         private float ToDissolveProportion(float time)
