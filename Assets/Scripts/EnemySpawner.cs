@@ -5,20 +5,21 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] enemy;
-    [SerializeField] GameObject respawnPos;
+    // [SerializeField] GameObject respawnPos;
     [SerializeField] float r;
     int theta;
 
     float time;
     [SerializeField] float respawnCycle;
+    [SerializeField] float lifeTime = 5f;
 
     public void Spawn()
     {
-        Vector3 pos = respawnPos.transform.position;
+        Vector3 pos = gameObject.transform.position;
         theta = Random.Range(0, 360);
         Destroy(Instantiate(enemy[Random.Range(0, enemy.Length)],
-                    new Vector3(pos.x + 2 * Mathf.Cos(Mathf.PI / 180 * theta) * Random.Range(0,r), pos.y + 2 * Mathf.Sin(Mathf.PI / 360 * theta) * Random.Range(0,r), pos.z + 2 * Mathf.Sin(Mathf.PI / 360 * theta) * Random.Range(0,r)),
-                    Quaternion.identity), 5f);
+                    new Vector3(pos.x +  Mathf.Cos(Mathf.PI*2 / 180 * theta) * Random.Range(0,r), pos.y + Mathf.Sin(Mathf.PI*2 / 360 * theta) * Random.Range(0,r), pos.z),
+                    Quaternion.identity), lifeTime);
     }
 
     private void Update()
