@@ -1,0 +1,12 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -58,6 +58,8 @@
+ # Crashlytics generated file
+ crashlytics-build.properties
+ 
++.idea/
++
+ # Assets
+ *DOTween/
+-*UniRx/
+\ No newline at end of file
++*UniRx/
