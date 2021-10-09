@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/EnemyGenerator.cs.meta
+guid: 9f577d21b7922724789d21b6baa63e56
+=======
+guid: 471c4734879174146bc4db6aae9ef549
+>>>>>>> develop:Assets/Scripts/CameraCont.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
