@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2512620285278874708}
   - component: {fileID: 2512620285278874704}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Untagged
+  m_Name: StraightBullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  distance: 10
+  rightDiagonal: 0
+  leftDiagonal: 0

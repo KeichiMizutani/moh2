@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(time);
+        // Debug.Log(time);
         time += Time.deltaTime;
         if (time >= respawnCycle)
         {
