@@ -8,10 +8,14 @@ public class PlayerCont : MonoBehaviour
 
     float speed = 10f;
     public float forwardSpeed = 1f; 
+    public float rotateSpeed = 1f;
+ 
     Animator anim;
     Rigidbody rb;
     float x;
     float y;
+    float AngleX;
+    float AngleY;
     float moveForce = 50f;
     public GameObject bullet;
     public GameObject rightDiagonalBullet;
@@ -33,8 +37,10 @@ public class PlayerCont : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxis("Horizontal") * speed;
-        y = Input.GetAxis("Vertical") * speed;
+	x = Input.GetAxis("Horizontal") * speed;
+	y = Input.GetAxis("Vertical") * speed;
+	AngleX = Input.GetAxis("Horizontal") * rotateSpeed;
+	AngleY = Input.GetAxis("Vertical") * rotateSpeed;
 
 	if(Input.GetKey(KeyCode.Space)){
 		if(!powerUp)
@@ -62,6 +68,26 @@ public class PlayerCont : MonoBehaviour
 			powerUpTimeText.SetActive(false);
 		}
 	}
+
+
+	/*if(transform.rotation.eulerAngles.x >= 20f){
+		transform.rotation = Quaternion.Euler(20f, transform.rotation.eulerAngles.y ,transform.rotation.eulerAngles.z);
+		}else if(transform.rotation.eulerAngles.x <= -20f)
+		{
+			transform.rotation = Quaternion.Euler(-20f, transform.rotation.eulerAngles.y ,transform.rotation.eulerAngles.z);
+		}*/
+		
+	
+
+	/*if(Mathf.Abs(transform.rotation.eulerAngles.y) >= 20f){
+		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 20f ,transform.rotation.eulerAngles.z);
+	}*/
+
+	/*if(transform.rotation.eulerAngles.z >= 20f){
+		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 20f);
+	}*/
+
+	
 		
 	
 	
@@ -72,11 +98,18 @@ public class PlayerCont : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 moveVector = Vector3.zero;
+	
+	
 
 	moveVector.x = x;
 	moveVector.y = y;
 	rb.AddForce(moveForce * (moveVector - rb.velocity));
 	transform.position += new Vector3(0, 0, forwardSpeed);
+	/*transform.RotateAround(transform.position, Vector3.up, AngleX);
+	transform.RotateAround(transform.position, Vector3.forward, AngleX);
+	transform.RotateAround(transform.position, Vector3.right, AngleY);*/
+
+	
 	
         
         
