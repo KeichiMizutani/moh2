@@ -18,7 +18,7 @@
 - リザルト画面では残りHPに応じて教授からありがたい言葉を頂ける
 
 **デモ動画**<br>
-準備中
+[![](https://img.youtube.com/vi/5iPF6cShoNA/0.jpg)](https://www.youtube.com/watch?v=5iPF6cShoNA)
 
 ## 開発技術
 - Unity
