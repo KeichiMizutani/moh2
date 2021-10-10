@@ -8,20 +8,21 @@ public class PlayerHP : MonoBehaviour
 {
     public float HP = 100f;
     public float maxHP = 100f;
-    public GameObject HPText;
+    public Slider HpSlider;
     public float amountOfDamage = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        HpSlider.value = 1;
+	HP = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
 	HP -= Time.deltaTime * amountOfDamage;
-	HPText.GetComponent<Text>().text = "HP : " + HP.ToString("F0");
+	HpSlider.value = HP / maxHP;
         if(HP <= 0)
 	{
 		SceneManager.LoadScene("Result");
