@@ -13,15 +13,21 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     private AudioSource audioSourceForBGM;
     private AudioSource[] audioSourceForSEList = new AudioSource[20];
 
-
+    [Range(0.0f, 1.0f)]
+    public float volumeBGM;
+    [Range(0.0f, 1.0f)]
+    public float volumeSE;
+    
     protected override void Awake()
     {
         base.Awake();
 
         audioSourceForBGM = gameObject.AddComponent<AudioSource>();
+        audioSourceForBGM.volume = volumeBGM;
         for (var i = 0; i < audioSourceForSEList.Length; ++i)
         {
             audioSourceForSEList[i] = gameObject.AddComponent<AudioSource>();
+            audioSourceForSEList[i].volume = volumeSE;
         }
     }
 
