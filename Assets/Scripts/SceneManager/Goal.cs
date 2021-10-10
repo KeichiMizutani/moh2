@@ -8,7 +8,7 @@ public class Goal : MonoBehaviour
 	[SerializeField]
 	Fade fade = null;
 
-	void OnCollisionEnter(Collision col)
+	void OnTriggerEnter(Collider col)
 	{
         Debug.Log(col);
         

@@ -4948,8 +4948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: -1}
   speed: 0
-  hp: 10
-  audio: {fileID: 0}
+  hp: 5
+  audio: {fileID: 8300000, guid: 5e8b571240e41a44ca2377314b9a681d, type: 3}
 --- !u!82 &659765559
 AudioSource:
   m_ObjectHideFlags: 0
