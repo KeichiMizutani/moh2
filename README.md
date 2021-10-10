@@ -2,7 +2,10 @@
 ## 作品概要
 3Dシューティングゲーム
 
-**制作背景**
+**ゲームのURL**<br>
+準備中
+
+**制作背景**<br>
 今回のMoveOnHackathonのテーマは「オンラインとオフラインの差を埋めよ！」です。そこで今回私たちはオンラインとオフラインの『 課題提出 』のちがいに注目しました。オフラインは提出したら直ぐに受理され、提出時そのままの状態で届きます。対してオンラインは、サーバーの混雑具合で提出から受理まで時間がかかる時があったり、なんらかの障害でデータ破損が起きたりします。このようにオンライン提出にはたくさんの障害があります。そこで今回私たちはそれらの障害をやっつけながら提出物を守る3Dシューティングゲームを作りました。
 
 **ゲームのルール**
@@ -14,10 +17,20 @@
 - アイテムを取るとしばらくの間打つ球の量が増えて強くなる
 - リザルト画面では残りHPに応じて教授からありがたい言葉を頂ける
 
-**デモ動画**
+**デモ動画**<br>
 準備中
 
 ## 開発技術
-**使用Asset**
+- Unity
+- Blender
+- C#
+- UniversalRenderPipeline
+- Post Processing
+- Unity Shader Graph
 - [UniRx - Reactive Extensions for Unity](https://assetstore.unity.com/packages/tools/integration/unirx-reactive-extensions-for-unity-17276)
-- [DOTween (HOTween v2)](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+
+## 今後の展望
+- エンドレスモードの追加
+- 難易度設定の追加
+- 軽量化するためにBulletをObjectPoolで使い回し
+- 強化要素の追加
