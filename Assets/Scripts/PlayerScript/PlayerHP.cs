@@ -33,7 +33,7 @@ public class PlayerHP : MonoBehaviour
 
     void FixedUpdate()
     {
-	
+	    
 	
 	
     }
