@@ -4814,9 +4814,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8250284734487126204}
   - component: {fileID: 8250284734487126205}
+
   - component: {fileID: 1433069096}
   - component: {fileID: 1433069095}
   - component: {fileID: 1433069094}
+
   m_Layer: 0
   m_Name: PowerUpItem
   m_TagString: Untagged
@@ -4912,4 +4914,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8250284734487126200}
+
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+

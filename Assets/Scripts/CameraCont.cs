@@ -18,6 +18,6 @@ public class CameraCont : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, target.transform.position - diff, Time.deltaTime * 10.0f);
 
-	/*transform.position += new Vector3(0, 0, 0.5f);*/
+	
     }
 }

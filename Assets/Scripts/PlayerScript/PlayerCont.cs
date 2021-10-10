@@ -16,23 +16,34 @@ public class PlayerCont : MonoBehaviour
     float y;
     float AngleX;
     float AngleY;
+    public float minAngle = -10f;
+    public float maxAngle = 10f;
     float moveForce = 50f;
+
     public GameObject bullet;
     public GameObject rightDiagonalBullet;
     public GameObject leftDiagonalBullet;
+
     public bool powerUp = false;
     public GameObject powerUpTimeText;
     float time = 0; 
+    Vector3 rotEuler;
+
  
     
     [SerializeField]
     float powerUpTime = 5f; 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+	rotEuler = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -105,9 +116,9 @@ public class PlayerCont : MonoBehaviour
 	moveVector.y = y;
 	rb.AddForce(moveForce * (moveVector - rb.velocity));
 	transform.position += new Vector3(0, 0, forwardSpeed);
-	/*transform.RotateAround(transform.position, Vector3.up, AngleX);
-	transform.RotateAround(transform.position, Vector3.forward, AngleX);
-	transform.RotateAround(transform.position, Vector3.right, AngleY);*/
+	rotEuler = new Vector3(Mathf.Clamp(rotEuler.x - AngleY, minAngle, maxAngle), Mathf.Clamp(rotEuler.y + AngleX, minAngle, maxAngle), Mathf.Clamp(rotEuler.z - AngleX, minAngle, maxAngle));
+        transform.localEulerAngles = rotEuler;
+	
 
 	
 	
