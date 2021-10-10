@@ -5,8 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class TitletoMain : MonoBehaviour
 {
-    public void OnClick()
-    {
-        SceneManager.LoadScene("Main");
-    }
+	[SerializeField]
+	Fade fade = null;
+
+	public void OnClick()
+	{
+		StartCoroutine(FadeScene());
+		// fade.FadeIn (1, () =>
+		// {
+		// 	fade.FadeOut(1);
+		// });
+	}
+
+	IEnumerator FadeScene()
+	{
+		fade.FadeIn (1);
+		yield return new WaitForSeconds(1.0f);
+		SceneManager.LoadScene("Main");
+	}
 }
