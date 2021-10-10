@@ -49,12 +49,12 @@ public class EnemyGenerator : MonoBehaviour
     GameObject ChooseEnemy()
     {
         
-        int rnd=Random.Range(0, enemyFrequency[0]+enemyFrequency[1]+enemyFrequency[2]+enemyFrequency[3]);
+        int rnd=Random.Range(0, enemyFrequency[0]+enemyFrequency[1]+enemyFrequency[2]);
         
         if(rnd <enemyFrequency[0])   return enemy[0];
         else if(rnd >= enemyFrequency[0] && rnd < enemyFrequency[1])   return enemy[1];
-        else if(rnd >= enemyFrequency[1] && rnd < enemyFrequency[2])   return enemy[2];
-        else return enemy[3];
+        else return enemy[2];
+        // else return enemy[3];
                 
         // return e;
     }

@@ -4948,7 +4948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: -1}
   speed: 0
-  hp: 0
+  hp: 10
   audio: {fileID: 0}
 --- !u!82 &659765559
 AudioSource:

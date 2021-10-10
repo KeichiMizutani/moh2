@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: -1}
   speed: 0.5
-  hp: 0
+  hp: 1
   audio: {fileID: 0}
 --- !u!135 &163749169
 SphereCollider:

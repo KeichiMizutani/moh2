@@ -29,13 +29,13 @@ public class PlayerCont : MonoBehaviour
     [SerializeField]
     float powerUpTime = 5f; 
 
-     AudioSource audio;
+    [SerializeField] AudioClip audio;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audio = GetComponent<AudioSource>();
+        // audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -55,7 +55,8 @@ public class PlayerCont : MonoBehaviour
 			Instantiate(rightDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
 			Instantiate(leftDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
 		}
-        audio.Play();
+        AudioManager.Instance.PlayOneShot(audio);
+        // audio.Play();
 	    	
 	}
 
