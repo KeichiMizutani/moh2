@@ -4,16 +4,40 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] Vector3 direction=new Vector3(-1,0,0);
-    [SerializeField] float speed=1.0f;
+    [SerializeField] Vector3 direction = new Vector3(-1, 0, 0);
+    [SerializeField] float speed = 1.0f;
     [SerializeField] int hp;
-    void Update()
+    PlayerHP playerHP;
+    [SerializeField] AudioSource audio;
+
+    private void Start()
     {
-        transform.position+=new Vector3(direction.x*speed, direction.y*speed, direction.z*speed) * Time.deltaTime;
+        audio = GetComponent<AudioSource>();
+        playerHP = GameObject.FindObjectOfType<PlayerHP>();
     }
 
-    private void OnCollisionEnter(Collision other) {
-        hp--;
-        if(hp <= 0) Destroy(this.gameObject);
+    void Update()
+    {
+        // transform.position += new Vector3(direction.x * speed, direction.y * speed, direction.z * speed) * Time.deltaTime;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerHP.HP--;
+            Destroy(this.gameObject);
+        }
+        else
+        {
+
+            hp--;
+            if (hp <= 0)
+            {
+                audio.Play();
+                Destroy(this.gameObject);
+            }
+
+        }
     }
 }

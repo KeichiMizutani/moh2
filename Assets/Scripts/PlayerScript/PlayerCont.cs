@@ -19,15 +19,19 @@ public class PlayerCont : MonoBehaviour
     public bool powerUp = false;
     public GameObject powerUpTimeText;
     float time = 0; 
+    float cooltime;
  
     
     [SerializeField]
     float powerUpTime = 5f; 
 
+     AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,6 +49,7 @@ public class PlayerCont : MonoBehaviour
 			Instantiate(rightDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
 			Instantiate(leftDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
 		}
+        audio.Play();
 	    	
 	}
 

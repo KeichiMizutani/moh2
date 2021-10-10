@@ -5,17 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField]
+	Fade fade = null;
 
 	void OnCollisionEnter(Collision col)
 	{
@@ -24,7 +15,15 @@ public class Goal : MonoBehaviour
         GameObject.FindObjectOfType<GameManager>().SetScore();
         Debug.Log(GameObject.FindObjectOfType<GameManager>());
 		if(col.gameObject.tag == "Player"){
-			SceneManager.LoadScene("Result");
+			// SceneManager.LoadScene("Result");
+            StartCoroutine(FadeScene());
 		}		
+	}
+
+    	IEnumerator FadeScene()
+	{
+		fade.FadeIn (1);
+		yield return new WaitForSeconds(1.0f);
+		SceneManager.LoadScene("Result");
 	}
 }
