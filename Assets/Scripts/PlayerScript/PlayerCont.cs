@@ -25,7 +25,7 @@ public class PlayerCont : MonoBehaviour
     public GameObject leftDiagonalBullet;
 
     public bool powerUp = false;
-    public GameObject powerUpTimeText;
+    public Slider powerUpSlider;
     float time = 0; 
     Vector3 rotEuler;
 
@@ -41,6 +41,7 @@ public class PlayerCont : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 	rotEuler = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+	powerUpSlider.value = 1;
     }
 
 
@@ -67,36 +68,20 @@ public class PlayerCont : MonoBehaviour
 
 	
 	if(powerUp){
-		powerUpTimeText.SetActive(true);
+		powerUpSlider.gameObject.SetActive(true);
 		time += Time.deltaTime;
-		powerUpTimeText.GetComponent<Text>().text = "弾増加中：" + "残り" + (powerUpTime - time).ToString("F0") + "秒";
-		
+		powerUpSlider.value = (powerUpTime - time) / powerUpTime;
 		
 		if(time >= powerUpTime)
 		{
 			powerUp = false;
 			time = 0;
-			powerUpTimeText.SetActive(false);
+			powerUpSlider.gameObject.SetActive(false);
 		}
 	}
 
 
-	/*if(transform.rotation.eulerAngles.x >= 20f){
-		transform.rotation = Quaternion.Euler(20f, transform.rotation.eulerAngles.y ,transform.rotation.eulerAngles.z);
-		}else if(transform.rotation.eulerAngles.x <= -20f)
-		{
-			transform.rotation = Quaternion.Euler(-20f, transform.rotation.eulerAngles.y ,transform.rotation.eulerAngles.z);
-		}*/
-		
 	
-
-	/*if(Mathf.Abs(transform.rotation.eulerAngles.y) >= 20f){
-		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 20f ,transform.rotation.eulerAngles.z);
-	}*/
-
-	/*if(transform.rotation.eulerAngles.z >= 20f){
-		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 20f);
-	}*/
 
 	
 		
