@@ -16,27 +16,35 @@ public class PlayerCont : MonoBehaviour
     float y;
     float AngleX;
     float AngleY;
+    public float minAngle = -10f;
+    public float maxAngle = 10f;
     float moveForce = 50f;
+
     public GameObject bullet;
     public GameObject rightDiagonalBullet;
     public GameObject leftDiagonalBullet;
+
     public bool powerUp = false;
-    public GameObject powerUpTimeText;
+    public Slider powerUpSlider;
     float time = 0; 
-    float cooltime;
+    Vector3 rotEuler;
+
  
     
     [SerializeField]
     float powerUpTime = 5f; 
 
-    [SerializeField] AudioClip audio;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        // audio = GetComponent<AudioSource>();
+	rotEuler = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+	powerUpSlider.value = 1;
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -55,43 +63,25 @@ public class PlayerCont : MonoBehaviour
 			Instantiate(rightDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
 			Instantiate(leftDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
 		}
-        AudioManager.Instance.PlayOneShot(audio);
-        // audio.Play();
 	    	
 	}
 
 	
 	if(powerUp){
-		powerUpTimeText.SetActive(true);
+		powerUpSlider.gameObject.SetActive(true);
 		time += Time.deltaTime;
-		powerUpTimeText.GetComponent<Text>().text = "弾増加中：" + "残り" + (powerUpTime - time).ToString("F0") + "秒";
-		
+		powerUpSlider.value = (powerUpTime - time) / powerUpTime;
 		
 		if(time >= powerUpTime)
 		{
 			powerUp = false;
 			time = 0;
-			powerUpTimeText.SetActive(false);
+			powerUpSlider.gameObject.SetActive(false);
 		}
 	}
 
 
-	/*if(transform.rotation.eulerAngles.x >= 20f){
-		transform.rotation = Quaternion.Euler(20f, transform.rotation.eulerAngles.y ,transform.rotation.eulerAngles.z);
-		}else if(transform.rotation.eulerAngles.x <= -20f)
-		{
-			transform.rotation = Quaternion.Euler(-20f, transform.rotation.eulerAngles.y ,transform.rotation.eulerAngles.z);
-		}*/
-		
 	
-
-	/*if(Mathf.Abs(transform.rotation.eulerAngles.y) >= 20f){
-		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 20f ,transform.rotation.eulerAngles.z);
-	}*/
-
-	/*if(transform.rotation.eulerAngles.z >= 20f){
-		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 20f);
-	}*/
 
 	
 		
@@ -111,9 +101,9 @@ public class PlayerCont : MonoBehaviour
 	moveVector.y = y;
 	rb.AddForce(moveForce * (moveVector - rb.velocity));
 	transform.position += new Vector3(0, 0, forwardSpeed);
-	/*transform.RotateAround(transform.position, Vector3.up, AngleX);
-	transform.RotateAround(transform.position, Vector3.forward, AngleX);
-	transform.RotateAround(transform.position, Vector3.right, AngleY);*/
+	rotEuler = new Vector3(Mathf.Clamp(rotEuler.x - AngleY, minAngle, maxAngle), Mathf.Clamp(rotEuler.y + AngleX, minAngle, maxAngle), Mathf.Clamp(rotEuler.z - AngleX, minAngle, maxAngle));
+        transform.localEulerAngles = rotEuler;
+	
 
 	
 	
