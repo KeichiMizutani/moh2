@@ -7,6 +7,12 @@ public class Goal : MonoBehaviour
 {
 	[SerializeField]
 	Fade fade = null;
+	[SerializeField] AudioClip audio;
+
+
+	private void Start() {
+		if(audio) AudioManager.Instance.Play(audio);
+	}
 
 	void OnTriggerEnter(Collider col)
 	{

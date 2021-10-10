@@ -34,6 +34,7 @@ public class PlayerCont : MonoBehaviour
     [SerializeField]
     float powerUpTime = 5f;
 
+    [SerializeField] AudioClip[] audio;
 
 
     // Start is called before the first frame update
@@ -58,10 +59,12 @@ public class PlayerCont : MonoBehaviour
         {
             if (!powerUp)
             {
+                AudioManager.Instance.PlayOneShot(audio[0]);
                 Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
             }
             else
             {
+                AudioManager.Instance.PlayOneShot(audio[1]);
                 Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
                 Instantiate(rightDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
                 Instantiate(leftDiagonalBullet, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
