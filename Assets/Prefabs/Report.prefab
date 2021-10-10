@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3, z: 0.3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.3, z: 0.4592384}
+  m_Center: {x: 0, y: 0, z: 0.07961923}
 --- !u!114 &3719408116458006402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: -1}
   speed: 0.6
-  hp: 5
+  hp: 3
+  audio: {fileID: 8300000, guid: 5e8b571240e41a44ca2377314b9a681d, type: 3}
 --- !u!1001 &1684304338
 PrefabInstance:
   m_ObjectHideFlags: 0
